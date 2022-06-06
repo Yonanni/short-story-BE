@@ -66,7 +66,7 @@ commentsRouter.get("/:commentId", async (req, res, next) => {
     const { commentId } = req.params;
     const comment = await CommentModel.findById(commentId)
       .populate("author")
-      .populate({ path: "subComments.author" });
+      // .populate({ path: "subComments.author" });
     if (comment) {
       res.send(comment);
     } else {
